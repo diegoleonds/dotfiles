@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PROJECT_PATH=$(find ~/Projects/Flutter -maxdepth 1 -type d | fzf)
+SESSION="Flutter"
+
+cd $PROJECT_PATH
+tmux new-session -d -s $SESSION
+
+# Split window vertically (left/right)
+tmux split-window -h -t $SESSION:0
+
+# Split left pane horizontally (top/bottom)
+tmux split-window -v -t $SESSION:0.1
+
+# Focus main pane (usually top-left)
+tmux select-pane -t 0
+
+tmux send-keys -t 0 'nvim .' C-m
+
+tmux attach-session -t $SESSION
+# nvim $PROJECT_PATH

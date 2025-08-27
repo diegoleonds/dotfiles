@@ -17,7 +17,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"jdtls",
-					"bashls",
+					"bashls"
 				},
 			})
 		end,

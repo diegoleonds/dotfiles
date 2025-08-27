@@ -1,0 +1,41 @@
+set number relativenumber
+
+let mapleader=" "
+
+"App
+map <Leader> <Action>(Stop)
+
+"View
+map <Tab> <Action>(NextTab)
+map <S-Tab> <Action>(PreviousTab)
+map <C-Tab> <Action>(NextSplitter)
+map <C-S-Tab> <Action>(PrevSplitter)
+map <leader>] <Action>(NextProjectWindow)
+map <leader>[ <Action>(PreviousProjectWindow)
+map <M-w> :action CloseContent<CR>
+
+map <leader>f <Action>(SelectInProjectView)
+map <leader>t <Action>(ActivateTerminalToolWindow)
+map <leader>v <Action>(SplitVertically)
+map <leader>V <Action>(UnsplitAll)
+map <leader>e <Action>(GotoNextError)
+map <leader>E <Action>(GotoPreviousError)
+map <leader>l <Action>(ShowLogcat)
+map <leader>p :action ActivateProjectToolWindow<CR>
+
+"Fuzzier
+map <leader>p <action>(com.mituuz.fuzzier.Fuzzier)
+map <leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
+map <leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
+
+"Build
+map <leader>B <Action>(BuildProject)
+map <leader>R <Action>(RebuildProject)
+map <leader>i <Action>(InvalidateCachesRestart)
+
+"Debug
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>d <Action>(Debug)
+
+"Refactor
+map <leader>r <Action>(RenameElement)

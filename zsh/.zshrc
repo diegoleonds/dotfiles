@@ -1,5 +1,6 @@
 #My configs
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export MANPAGER='nvim +Man!'
 
 export VISUAL=nvim
@@ -42,6 +43,9 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(tmuxifier init -)"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 source ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

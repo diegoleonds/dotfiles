@@ -1,0 +1,18 @@
+#!/bin/bash
+SESSION="Flutter"
+
+tmux new-session -d -s $SESSION
+
+# Split window vertically (left/right)
+tmux split-window -v -t $SESSION:0
+
+# Split left pane horizontally (top/bottom)
+tmux split-window -h -t $SESSION:0.0
+
+# Start nvim in top-left pane
+# tmux send-keys -t $SESSION:0.0 'nvim' C-m
+
+# Select top-left pane (focus)
+tmux select-pane -t $SESSION:0.0
+
+tmux attach-session -t $SESSION
