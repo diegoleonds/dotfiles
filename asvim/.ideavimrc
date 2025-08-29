@@ -1,41 +1,52 @@
+scrolloff=7
+set incsearch
+map Q gq
+
 set number relativenumber
-
-let mapleader=" "
-
-"App
-map <Leader> <Action>(Stop)
-
-"View
-map <Tab> <Action>(NextTab)
-map <S-Tab> <Action>(PreviousTab)
-map <C-Tab> <Action>(NextSplitter)
-map <C-S-Tab> <Action>(PrevSplitter)
-map <leader>] <Action>(NextProjectWindow)
-map <leader>[ <Action>(PreviousProjectWindow)
-map <M-w> :action CloseContent<CR>
-
-map <leader>f <Action>(SelectInProjectView)
-map <leader>t <Action>(ActivateTerminalToolWindow)
-map <leader>v <Action>(SplitVertically)
-map <leader>V <Action>(UnsplitAll)
-map <leader>e <Action>(GotoNextError)
-map <leader>E <Action>(GotoPreviousError)
-map <leader>l <Action>(ShowLogcat)
-map <leader>p :action ActivateProjectToolWindow<CR>
-
-"Fuzzier
-map <leader>p <action>(com.mituuz.fuzzier.Fuzzier)
-map <leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
-map <leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
-
-"Build
-map <leader>B <Action>(BuildProject)
-map <leader>R <Action>(RebuildProject)
-map <leader>i <Action>(InvalidateCachesRestart)
-
-"Debug
-map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>d <Action>(Debug)
+set mapleader =" "
 
 "Refactor
-map <leader>r <Action>(RenameElement)
+map <Leader>r :action RenameElement<CR>
+
+"Autocomplete
+imap <C-Space> :action CodeCompletion<CR>
+
+"View
+map <Tab> :action NextTab<CR>
+map <S-Tab> :action PreviousTab<CR>
+map <Leader>] :action NextProjectWindow<CR>
+map <Leader>[ :action PreviousProjectWindow<CR>
+map <C-PageUp> :action Terminal.NextTab<CR>
+map <C-PageDown> :action Terminal.PreviousTab<CR>
+
+map <Leader>e :action GotoNextError<CR>
+map <Leader>ep :action GotoPreviousError<CR>
+map <Leader>l :action ActivateLogcatToolWindow<CR>
+nnoremap <Leader>su :action ShowUsages<CR>
+nnoremap <Leader>mu :action MethodUp<CR>
+nnoremap <Leader>md :action MethodDown<CR>
+nnoremap <C-]> action VcsShowNextChangeMarker<CR>
+mnoremap <C-[> :action VcsShowPrevChangeMarker<CR>
+nnoremap <Leader><Leader> :action SearchEverywhere<CR>
+
+"Git
+map <Leader>g :action Annotate<CR>
+
+"Test
+nnoremap <Leader>gt action GotoTest<CR>
+nnoremap <Leader>tf :action RerunFailedTests<CR>
+
+"Splitters
+ap <C-l> :action NextSplitter<CR>
+ap <C-h> :action PrevSplitter<CR>
+map <Leader>v :action SplitVertically<CR>
+map <Leader>V :action Unsplit<CR>
+map <Leader>f :action SelectInProjectView<CR>
+map <Leader>t :action ActivateTerminalToolWindow<CR>
+map <Leader>l :action Logcat<CR>
+
+"Debug
+map <Leader>d :action ToggleLineBreakPoint<CR>
+
+"Custom
+nnoremap <Leader>b :silent! s/\<true\>/false/e \| s/\<false\>/true/e<CR>
