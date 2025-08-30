@@ -1,9 +1,7 @@
-scrolloff=7
-set incsearch
-map Q gq
-
 set number relativenumber
-set mapleader =" "
+
+let mapleader=" "
+
 
 "Refactor
 map <Leader>r :action RenameElement<CR>
@@ -37,8 +35,8 @@ nnoremap <Leader>gt action GotoTest<CR>
 nnoremap <Leader>tf :action RerunFailedTests<CR>
 
 "Splitters
-ap <C-l> :action NextSplitter<CR>
-ap <C-h> :action PrevSplitter<CR>
+map <C-l> :action NextSplitter<CR>
+map <C-h> :action PrevSplitter<CR>
 map <Leader>v :action SplitVertically<CR>
 map <Leader>V :action Unsplit<CR>
 map <Leader>f :action SelectInProjectView<CR>
@@ -48,5 +46,3 @@ map <Leader>l :action Logcat<CR>
 "Debug
 map <Leader>d :action ToggleLineBreakPoint<CR>
 
-"Custom
-nnoremap <Leader>b :silent! s/\<true\>/false/e \| s/\<false\>/true/e<CR>
